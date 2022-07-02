@@ -21,4 +21,12 @@ public class StudentService {
     public List<Student> getStudents() {
         return studentRepository.findAll();
     }
+
+    public Student createStudent(Student student) {
+        boolean existsWithEmail = studentRepository.findStudentByEmail(student.getEmail()).isPresent();
+
+        if (existsWithEmail) throw  new IllegalStateException("email taken");
+
+        return studentRepository.save(student);
+    }
 }

@@ -6,8 +6,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Period;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "student")
 public class Student {
